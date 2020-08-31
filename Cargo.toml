@@ -1,7 +1,5 @@
 [workspace]
 
 members = [
-    "alpm-rs",
-    "aur-client",
-    "pacman"
+    "aur-client-fork",
 ]

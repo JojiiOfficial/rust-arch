@@ -58,7 +58,9 @@ pub async fn search(arg: &str) -> Result<Response, Box<dyn Error>> {
         &AUR_RPC_URL,
         &[("v", AUR_RPC_VER), ("type", "search"), ("arg", arg)],
     )?;
-    let resp: Response = reqwest::get(url.as_str()).await?.json().await?;
+
+    let client = reqwest::Client::new();
+    let resp: Response = client.get(url.as_str()).send().await?.json().await?;
     Ok(resp)
 }
 
@@ -72,7 +74,8 @@ pub async fn info(needles: &[&str]) -> Result<Response, Box<dyn Error>> {
 
     let url = Url::parse_with_params(&AUR_RPC_URL, &args)?;
 
-    let resp: Response = reqwest::get(url.as_str()).await?.json().await?;
+    let client = reqwest::Client::new();
+    let resp: Response = client.get(url.as_str()).send().await?.json().await?;
     Ok(resp)
 }
 
