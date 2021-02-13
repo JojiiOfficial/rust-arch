@@ -9,6 +9,6 @@ description="aur api rust client"
 repository="https://github.com/JojiiOfficial/rust-arch"
 
 [dependencies]
-reqwest = { version = "0.10", features = ["json"] }
-serde = { version = "1.0", features = ["derive"] }
+reqwest = { version = "0.11.0", features = ["json"] }
+serde = { version = "1.0.123", features = ["derive"] }
 lazy_static = "1.4.0"
